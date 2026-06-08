@@ -2,6 +2,6 @@
 builder = "DOCKERFILE"
 
 [deploy]
-healthcheckPath = "/login.php"
+healthcheckPath = "/health.php"
 healthcheckTimeout = 60
 restartPolicyType = "ON_FAILURE"
