@@ -1,0 +1,101 @@
+/* ============================================================
+   EcoSalva Admin - Estilos globales
+   ============================================================ */
+
+:root {
+  --ecosalva-green:  #1a7c3e;
+  --ecosalva-light:  #e8f5e9;
+  --ecosalva-dark:   #145a2c;
+  --sidebar-width:   240px;
+}
+
+/* ── Navbar ─────────────────────────────────────────────── */
+.bg-ecosalva { background-color: var(--ecosalva-green) !important; }
+.text-ecosalva { color: var(--ecosalva-green) !important; }
+
+/* ── Layout ─────────────────────────────────────────────── */
+body { background: #f4f6f8; padding-top: 56px; }
+
+.wrapper { min-height: calc(100vh - 56px); }
+
+/* ── Sidebar ─────────────────────────────────────────────── */
+.sidebar {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  min-height: calc(100vh - 56px);
+  position: sticky;
+  top: 56px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  background: #1e2227 !important;
+}
+
+.sidebar .nav-link {
+  color: #ced4da;
+  padding: .5rem .75rem;
+  border-radius: 6px;
+  font-size: .875rem;
+  transition: background .15s, color .15s;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+  background: var(--ecosalva-green);
+  color: #fff;
+}
+
+.sidebar-footer { font-size: .75rem; }
+
+/* ── Contenido principal ─────────────────────────────────── */
+.main-content { background: #f4f6f8; }
+
+/* ── Tarjetas KPI ────────────────────────────────────────── */
+.kpi-card {
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,.07);
+  transition: transform .15s;
+}
+.kpi-card:hover { transform: translateY(-2px); }
+.kpi-card .kpi-icon {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+}
+.kpi-card .kpi-value  { font-size: 1.7rem; font-weight: 700; }
+.kpi-card .kpi-label  { font-size: .8rem; color: #6c757d; }
+.kpi-card .kpi-delta  { font-size: .8rem; font-weight: 600; }
+
+/* ── Tablas ─────────────────────────────────────────────── */
+.table-hover tbody tr:hover { background-color: var(--ecosalva-light); }
+.table th { background: #f8f9fa; font-size: .82rem; text-transform: uppercase; letter-spacing: .03em; }
+
+/* ── Charts ─────────────────────────────────────────────── */
+.chart-card { border-radius: 12px; border: none; box-shadow: 0 2px 8px rgba(0,0,0,.07); }
+.chart-container { position: relative; }
+
+/* ── Badges de estado ────────────────────────────────────── */
+.badge { font-weight: 500; }
+
+/* ── Login page ─────────────────────────────────────────── */
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--ecosalva-green) 0%, var(--ecosalva-dark) 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.login-card {
+  width: 400px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.2);
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 767.98px) {
+  .sidebar { width: 100%; min-width: 100%; position: relative; top: 0; }
+  .wrapper { flex-direction: column; }
+}
+
+/* ── Tooltips ────────────────────────────────────────────── */
+.filter-bar { background: #fff; border-radius: 10px; padding: 1rem; box-shadow: 0 1px 4px rgba(0,0,0,.06); }

@@ -1,0 +1,20 @@
+{
+    "name": "ecosalva/admin-panel",
+    "description": "EcoSalva - Panel Administrativo Interno",
+    "type": "project",
+    "require": {
+        "php": ">=8.1",
+        "ext-pdo": "*",
+        "ext-pdo_pgsql": "*"
+    },
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "EcoSalva\\Admin\\": "src/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    }
+}

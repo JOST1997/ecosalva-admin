@@ -1,0 +1,27 @@
+# EcoSalva Admin Panel - Apache config
+Options -Indexes
+DirectoryIndex index.php
+
+# Bloquear acceso directo a config/includes
+<FilesMatch "^(database|app)\.php$">
+    Order deny,allow
+    Deny from all
+</FilesMatch>
+
+# Evitar ejecución de PHP en carpeta assets
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Redirigir a login si no hay sesión (manejado en PHP)
+
+    # Seguridad: no exponer archivos sensibles
+    RewriteRule ^(config|includes)/.*$ - [F,L]
+</IfModule>
+
+# Headers de seguridad
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
