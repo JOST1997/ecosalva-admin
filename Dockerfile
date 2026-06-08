@@ -1,27 +1,14 @@
-FROM php:8.3-apache
+FROM php:8.3-cli
 
 RUN apt-get update && apt-get install -y \
     libpq-dev \
     && docker-php-ext-install pdo pdo_pgsql pgsql \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-COPY . /var/www/html/
+COPY . /app/
 
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html
-
-RUN rm -f /etc/apache2/mods-enabled/mpm_*.load /etc/apache2/mods-enabled/mpm_*.conf \
-    && a2enmod mpm_prefork \
-    && a2enmod rewrite
-
-RUN echo '<Directory /var/www/html>\n\
-    AllowOverride All\n\
-    Require all granted\n\
-</Directory>' >> /etc/apache2/apache2.conf
-
-COPY start.sh /start.sh
-RUN chmod +x /start.sh
+WORKDIR /app
 
 EXPOSE 80
 
-CMD ["/start.sh"]
+CMD ["sh", "-c", "php -S 0.0.0.0:${PORT:-80} -t /app"]

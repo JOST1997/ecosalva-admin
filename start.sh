@@ -1,5 +1,2 @@
-#!/bin/bash
-PORT=${PORT:-80}
-sed -i "s/Listen 80/Listen $PORT/" /etc/apache2/ports.conf
-sed -i "s/:80/:$PORT/" /etc/apache2/sites-enabled/000-default.conf
-exec apache2-foreground
+#!/bin/sh
+exec php -S 0.0.0.0:${PORT:-80} -t /app
