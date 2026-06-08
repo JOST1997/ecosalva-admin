@@ -1,0 +1,7 @@
+[build]
+builder = "DOCKERFILE"
+
+[deploy]
+startCommand = "apache2-foreground"
+healthcheckPath = "/login.php"
+restartPolicyType = "ON_FAILURE"
