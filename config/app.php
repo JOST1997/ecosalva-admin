@@ -1,4 +1,5 @@
 <?php
+if (defined('APP_NAME')) return;
 // ============================================================
 // Configuración general de la aplicación
 // ============================================================
@@ -16,7 +17,7 @@ ini_set('session.use_strict_mode', 1);
 ini_set('session.cookie_samesite', 'Strict');
 
 // Mostrar errores solo en desarrollo
-if (getenv('APP_ENV') === 'production') {
+if (getenv('APP_ENV') === 'production' || !getenv('APP_ENV')) {
     ini_set('display_errors', 0);
     error_reporting(0);
 } else {
